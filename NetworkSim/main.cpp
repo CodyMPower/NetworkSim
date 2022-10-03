@@ -9,16 +9,16 @@ int main()
 	unsigned int numInputs = 1;
 	unsigned int numOutputs = 3;
 	unsigned int numLayers = 3;
-	unsigned int* numNodes = (unsigned int*)malloc(sizeof(unsigned int) * numLayers);
+	unsigned int* numNeurons = (unsigned int*)malloc(sizeof(unsigned int) * numLayers);
 	for (int i = 0; i < numLayers; i++)
-		numNodes[i] = 3;
+		numNeurons[i] = 3;
 
 	Weightings** weights = (Weightings**)malloc(sizeof(Weightings*) * (numLayers + 1));
 	
-	weights[0] = new Weightings(1, numNodes[0]);
-	weights[1] = new Weightings(numNodes[0], numNodes[1]);
-	weights[2] = new Weightings(numNodes[1], numNodes[2]);
-	weights[3] = new Weightings(numNodes[2], numOutputs);
+	weights[0] = new Weightings(1, numNeurons[0]);
+	weights[1] = new Weightings(numNeurons[0], numNeurons[1]);
+	weights[2] = new Weightings(numNeurons[1], numNeurons[2]);
+	weights[3] = new Weightings(numNeurons[2], numOutputs);
 	
 	weights[0]->setWeight(1, 1, 1.0f);
 	weights[0]->setWeight(1, 2, 1.0f);
@@ -49,8 +49,7 @@ int main()
 	weights[3]->setWeight(1, 3, 1.0f);
 
 	
-
-	Network* net = new Network();
+	Network* net = new Network(numLayers, numNeurons);
 	net->setInputs(&inputs,1);
 	net->setWeights(weights);
 

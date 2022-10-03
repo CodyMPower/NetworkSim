@@ -10,6 +10,24 @@ Network::Network()
 	_networkSetup();
 }
 
+Network::Network(unsigned int numLayers)
+{
+	this->numLayers = numLayers;
+	numNeurons = (unsigned int*)malloc(sizeof(unsigned int) * numLayers);
+	for (int i = 0; i < numLayers; i++)
+		numNeurons[i] = 3;
+
+	_networkSetup();
+}
+
+Network::Network(unsigned int numLayers, unsigned int* numNeurons)
+{
+	this->numLayers = numLayers;
+	this->numNeurons = numNeurons;
+
+	_networkSetup();
+}
+
 void Network::setInputs(double** inputs, unsigned int inputSize)
 {
 	this->inputSize = inputSize;
