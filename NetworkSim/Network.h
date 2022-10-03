@@ -12,7 +12,7 @@ public:
 	Network(unsigned int numLayers, unsigned int* numNeurons);
 
 	void setInputs(double** inputs , unsigned int inputSize);
-	void setWeights(Weightings** weightings);
+	void setWeightsAndBiases(Weightings** weightings);
 	void evaluate(double stepSize);
 	void calculateOutputs();
 	double* getOutputs() { return outputs; }

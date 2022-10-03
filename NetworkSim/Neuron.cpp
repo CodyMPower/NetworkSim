@@ -21,7 +21,7 @@ void Neuron::evaluate(double stepSize)
 {
 	int input = 0;
 	for (int i = 0; i < inputSize; i++)
-		input += *inputs[i] * weights[i];
+		input += *inputs[i] * weights[i] + biases[i];
 
 	v = v + stepSize * (0.04 * v * v + 5 * v + 140 - u + input);
 	u = u + stepSize * a * (b * v - u);

@@ -51,7 +51,7 @@ int main()
 	
 	Network* net = new Network(numLayers, numNeurons);
 	net->setInputs(&inputs,1);
-	net->setWeights(weights);
+	net->setWeightsAndBiases(weights);
 
 	for (double time = 0; time < 100; time += tau)
 	{

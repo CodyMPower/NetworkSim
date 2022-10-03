@@ -34,11 +34,15 @@ void Network::setInputs(double** inputs, unsigned int inputSize)
 	arr[0]->setInputs(inputs, inputSize);
 }
 
-void Network::setWeights(Weightings** weightings)
+void Network::setWeightsAndBiases(Weightings** weightings)
 {
 	numOutputs = weightings[numLayers]->getOutputs();
 	for (int i = 0; i < numLayers; i++)
+	{
 		arr[i]->setWeights(weightings[i]->getWeights());
+		arr[i]->setBiases(weightings[i]->getBiases());
+	}
+
 	outputs = (double*)malloc(sizeof(double) * numOutputs);
 }
 

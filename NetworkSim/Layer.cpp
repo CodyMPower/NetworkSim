@@ -41,6 +41,12 @@ void Layer::setWeights(double** inputWeights)
 
 }
 
+void Layer::setBiases(double** inputBiases)
+{
+	for (int i = 0; i < this->numNeurons; i++)
+		arr[i]->setBiases(inputBiases[i]);
+}
+
 void Layer::evaluate(double stepSize)
 {
 	for (int i = 0; i < numNeurons; i++)

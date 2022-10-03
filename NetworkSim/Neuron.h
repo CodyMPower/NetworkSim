@@ -17,6 +17,7 @@ public:
 	}
 
 	void setWeights(double* weights) { this->weights = weights; }
+	void setBiases(double* biases) { this->biases = biases; }
 	void caluclateOutput();
 	double* getOutput();
 	void printNeuron();
@@ -26,6 +27,7 @@ public:
 private:
 	double v, u, a, b, c, d, t, h;
 	double* weights;
+	double* biases;
 	double** inputs;
 	double output;
 	unsigned int inputSize;

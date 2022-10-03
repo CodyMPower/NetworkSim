@@ -9,6 +9,7 @@ public:
 
 	void setInputs(double** inputs, unsigned int inputSize);
 	void setWeights(double** inputWeights);	
+	void setBiases(double** inputBiases);
 	void evaluate(double stepSize);
 	double** getOutputs();
 	void printNeurons();

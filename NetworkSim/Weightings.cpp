@@ -12,6 +12,14 @@ Weightings::Weightings(unsigned int inputs, unsigned int outputs)
 		for (int j = 0; j < this->inputs; j++)
 			weights[i][j] = 0.0f;
 	}
+
+	biases = (double**)malloc(sizeof(double*) * this->outputs);
+	for (int i = 0; i < outputs; i++)
+	{
+		biases[i] = (double*)malloc(sizeof(double) * this->inputs);
+		for (int j = 0; j < this->inputs; j++)
+			biases[i][j] = 0.0f;
+	}
 }
 
 void Weightings::setWeight(unsigned int input, unsigned int output, double weight)
@@ -30,6 +38,15 @@ double Weightings::getWeight(unsigned int input, unsigned int output)
 	if (outputs > this->outputs)
 		return 0.0f;
 	return weights[output][input];
+}
+
+double Weightings::getBias(unsigned int input, unsigned int output)
+{
+	if (inputs > this->inputs)
+		return 0.0f;
+	if (outputs > this->outputs)
+		return 0.0f;
+	return biases[output][input];
 }
 
 Weightings::~Weightings()
